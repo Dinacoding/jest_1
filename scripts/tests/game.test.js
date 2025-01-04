@@ -1,11 +1,13 @@
 /**
  * @jest-environment jsdom
  */
+const {game} = require("../game");
+
 beforeAll(() =>{
     let fs = require("fs");
-    let fileContent = fs.readFileSync("index.html", "utf-8");
+    let fileContents = fs.readFileSync("index.html", "utf-8");
     document.open();
-    document.write(fileContent);
+    document.write(fileContents);
     document.close();
 })
 
