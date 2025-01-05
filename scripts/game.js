@@ -9,7 +9,11 @@ function newGame() {
     game.score = 0;
     game.playerMoves = [];
     game.currentGame = [];
+    resetScore()
 
 }
 
-module.exports = { game, newGame };
+function resetScore () {
+    document.getElementById("score").innerText = game.score;
+}
+module.exports = { game, newGame, resetScore };

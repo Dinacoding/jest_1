@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-const { game , newGame } = require("../game");
+const { game , newGame, resetScore} = require("../game");
 
 beforeAll(() =>{
     let fs = require("fs");
@@ -45,5 +45,9 @@ describe("new game works correctly", () => {
     });
     test("clear the currentGame array", () => {
         expect(game.currentGame.length).toBe(0);
+    });
+
+    test("should be equal to 0 the element with id score", () => {
+        expect(document.getElementById("score").innerText).toEqual(0);
     });
   });
