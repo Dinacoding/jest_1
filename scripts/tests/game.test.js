@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 const { game , newGame } = require("../game");
 
 beforeAll(() =>{
@@ -29,10 +32,18 @@ describe("game object containt correct keys", () =>{
 describe("new game works correctly", () => {
     beforeAll(() => {
       game.score = 43; 
+      game.playerMoves = ["oeiei", "dududu"];
+      game.currentGame = ["oeiei", "dududu"];
       newGame(); 
     });
   
     test("should set game score to zero", () => {
         expect(game.score).toEqual(0); 
-      });    
+    });    
+    test("clear the playerMoves array", () => {
+        expect(game.playerMoves.length).toBe(0);
+    });
+    test("clear the currentGame array", () => {
+        expect(game.currentGame.length).toBe(0);
+    });
   });
