@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-const { game , newGame, resetScore} = require("../game");
+const { game , newGame, resetScore, addTurn} = require("../game");
 
 beforeAll(() =>{
     let fs = require("fs");
@@ -43,8 +43,8 @@ describe("new game works correctly", () => {
     test("clear the playerMoves array", () => {
         expect(game.playerMoves.length).toBe(0);
     });
-    test("clear the currentGame array", () => {
-        expect(game.currentGame.length).toBe(0);
+    test("should be one move in by the computer", () => {
+        expect(game.currentGame.length).toBe(1);
     });
 
     test("should be equal to 0 the element with id score", () => {
